@@ -77,6 +77,7 @@ type Dish{
   price: Int
 }
 input restaurantInput{
+  id: Int
   name: String
   description: String
 }
@@ -93,19 +94,34 @@ type Mutation{
 
 var root = {
   restaurant: (arg) => {
-    // Your code goes here
+    return restaurants[arg.id - 1];
   },
   restaurants: () => {
-    // Your code goes here
+    return restaurants;
   },
   setrestaurant: ({ input }) => {
-    // Your code goes here
+    restaurants.push({
+      id: input.id,
+      name: input.name,
+      description: input.description,
+      dishes: input.dishes,
+    });
+    return input;
   },
+
   deleterestaurant: ({ id }) => {
-    // Your code goes here
+    const ok = Boolean(restaurants[id - 1]);
+    let delc = restaurants["id"];
+    restaurants = restaurants.filter((item) => item.id !== id);
+    console.log(JSON.stringify(delc));
+    return { ok };
   },
   editrestaurant: ({ id, ...restaurant }) => {
-    // Your code goes here
+    if (!restaurants[id - 1]) {
+      throw new Error("restaurant doesn't exist");
+    }
+    restaurants[id - 1] = { ...restaurants[id - 1], ...restaurant };
+    return restaurants[id - 1];
   },
 };
 var app = express();
@@ -119,5 +135,3 @@ app.use(
 );
 var port = 5500;
 app.listen(5500, () => console.log("Running Graphql on Port:" + port));
-
-export default root;
