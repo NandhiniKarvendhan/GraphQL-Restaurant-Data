@@ -1,13 +1,13 @@
 # GraphQL Restaurant Data
 
-Setting up GraphQL for restaurant data and then addding mutations to get and update the data.
+Setting up GraphQL of restaurant data and then adding mutations to get and update the data.
 
 ## How to run
 
 To get started with this project, please:
 
 1. Download or clone repo's files.
-2. Run npm install in terminal.
+2. Run npm install in the terminal.
 3. Run node index.js.
 4. Open http://localhost:5500/graphql to write queries and mutations.
 
