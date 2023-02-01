@@ -8,7 +8,7 @@ To get started with this project, please:
 
 1. Download or clone repo's files.
 2. Run npm install in terminal.
-3. Run node indes.js.
+3. Run node index.js.
 4. Open http://localhost:5500/graphql to write queries and mutations.
 
 ## License information
